@@ -72,7 +72,7 @@ class Nav extends Component {
                 </div>
                 <div style={{ opacity: this.state.wide >= 800 ? 1 : 0 }} className="sign2">
                     <p className="s1">VEHECLES</p>
-                    <p className="s2">EZakho</p>
+                    <p className="s2">TOOLS</p>
                     <Link style={{ color: '#ffff', textDecoration: 'none' }} to='/privacy_policy'>
                         <p className="s3">OUR STORY</p>
                     </Link>
