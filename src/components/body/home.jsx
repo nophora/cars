@@ -15,7 +15,7 @@ class Home extends Component {
         nav: false,
         body: false,
         wide: window.innerWidth,
-        
+
 
         types: [{
             _id: 1, logo: './uploads/logl.jpeg', name: 'Essenza SCV12',
@@ -97,104 +97,225 @@ class Home extends Component {
 
 
     render() {
+        //  <div style={{ width:'100%',backgroundColor:'#ffff',height: '150px' }}></div>
+
+
         return (
             <div className="cars">
-                {this.state.wide >= 800 ? <Welcome /> : <div style={{ width:'100%',backgroundColor:'#ffff',height: '150px' }}></div>}
-                {this.state.nav && <Nav />}
-
-                {this.state.body && <div className="body">
-                    <div className="type">
-                        <h1 className="typ">THE NEW ERA OF TYPE S</h1>
-                    </div>
-
-                    <div className="typer">
-                        {this.state.types.map(e => {
-                            return (<div key={e._id} className="typer1">
-
-                                <div className="colom2">
-                                    <img src={e.logo} alt='lb' className='lb' />
-                                </div>
-                                <div className="colom3">
-                                    <h1>{e.name}</h1>
-                                    <p className="ft">{e.p.slice(0, 120)}</p>
-                                    <img src={e.icon} alt='lbt' className="video" />
-                                    <p className="ft">{e.p.slice(120, 250)}</p>
-                                    <Link style={{ alignSelf: 'flex-end' }} to={`/type_s/${e._id}`}>
-                                        <div onClick={() => { this.c(e._id) }} className="butn">MORE</div>
-                                    </Link>
-                                </div>
-                            </div>)
-                        })}
 
 
+                {this.state.wide <= 800 ?
+                    <div className="cars">
+                        <Nav />
 
-
-
-                    </div>
-
-
-                    <div className="csaction">
-                        <div className="njal">MOST EXPENSIVE CAR </div>
-                        <div className="ymi">
-
-                        <Link style={{ }} to={`/select/${'Porsche'}`}>
-                            <div className="kal">
-                                <div className="csqt">
-                                    <div className="c2"><img src={B4} alt='lb' className='lbe' /></div>
-                                  
-                                </div>
-                            </div>
-                          </Link>
-
-                        <Link style={{ }} to={`/select/${'FERRARI'}`}>
-                            <div className="kal2">
-                                <div className="csqt">
-                                   <div className="c2"><img src={B2} alt='lb' className='lbe' /></div>
-                                  
-                                </div>
-                            </div>
-                            </Link>
-
-                        <Link style={{ }} to={`/select/${'DEAWOO'}`}>
-                            
-                            <div className="kal3">
-                                <div className="csqt">
-                                   <div className="c2"><img src={B3} alt='lb' className='lbe' /></div>
-                                 
-                                </div>
-
-                                    </div>
-                                    </Link>
-                                    <Link style={{ }} to={`/select/${'BUGATTI DIVO'}`}>
-
-                            <div className="kal4">
-                                <div className="csqt">
-                                   <div className="c2"><img src={B1} alt='lb' className='lbe' /></div>
-                                   
-                                </div>
-                                </div>
-                                </Link>
+                        <div className="slyt"></div>
+                        <div className="mstyp">
+                            <h1 className="mstyp1">THE NEW ERA OF TYPE S</h1>
                         </div>
-                        
-                    </div>
 
-                                
-                    <div className="honda">
-                        <h1 className="fh">Cupra Formentor</h1>
-                        <img src={Honda} alt='lb' className='lbh' />
-                        <p className="fs">
-                        Cupra is the high-performance brand for Spanish car brand SEAT and the Formentor is a new crossover coupe that takes square aim at rivals such as the Audi Q3 Sportback, Mercedes-Benz GLC Coupe and BMW X4 Coupe, for example, but at Seat pricing.
-As such, it boasts sharp and edgy styling that’s hard to not to like and we think it has the looks to best the best in this segment. As for firepower, a 2.0-litre turbocharged petrol engine is fitted with 228 kW and 400 Nm of torque on offer, combined with 4-wheel-drive and a 7-speed DSG transmission. A plug-in hybrid powertrain is also offered. If available in Mzanzi, we can’t see why the Formentor wouldn't serve as an attractive choice to counter the mostly predictable design direction offered by the German trio.
-Skoda Yeti Raptor as it’s perhaps the most capable offroad bakkie currently on sale in South Africa. But sometimes bigger is better and in the case of Ford’s F-Series range of pickups, this is certainly the case. The full-size F-Series is the most-sold pickup in the U.S. and in South Africa, enthusiasts seem to have an affinity for the F-150 and in particular, the F-150 Raptor.
-While various powerful powerplants are offered for the F-150, the F-150 Raptor is fitted with a twin-turbocharged 3.5-litre V6 engine with 331 kW and 690 Nm of torque and mated with a 10-speed automatic transmission that drives all 4 wheels. The larger F-150 Raptor is an offroad beast, especially because of its impressive variable damping Fox shock absorbers that deliver exceptional offroad performance. Variable drive modes are on offer, but as on the Ranger Raptor, Baja mode is the mode that allows you to achieve truly astonishing high-speed offroad performance in tough terrain. There is so much to like about the F-150 Raptor and it simply must feature on our list of coolest cars we would want in South Africa.
 
-                            
+
+
+                        <div className="mstyper">
+                            {this.state.types.map(e => {
+                                return (<div key={e._id} className="mtyper1">
+                                    <div className="mcolom2">
+                                        <img src={e.logo} alt='lb' className='mlb' />
+                                    </div>
+                                    <h1 className='txr' >{e.name}</h1>
+                                    <img src={e.icon} alt='lbt' className="smvideo" />
+                                    <p className="msft">{e.p.slice(120, 250)}</p>
+
+                                    <Link style={{ alignSelf: 'flex-end' }} to={`/type_s/${e._id}`}>
+                                        <div onClick={() => { this.c(e._id) }} className="mbutn">MORE</div>
+                                    </Link>
+                                </div>)
+                            })}
+                        </div>
+
+
+                        <Link style={{
+                            width: '100%',
+                            alignSelf: 'center',
+                            height: '100%'
+
+                        }} to={`/select/${'Porsche'}`}>
+                            <div className="mkalx">
+                                <div className="mcsqt">
+                                    <div className="c2"><img src={B4} alt='lb' className='mxlbe' /></div>
+
+                                </div>
+                                <div className="mkal1">
+
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link style={{
+                            width: '100%',
+                            alignSelf: 'center',
+                            height: '100%'
+
+                        }} to={`/select/${'FERRARI'}`}>
+                            <div className="mkalx2">
+                                <div className="mcsqt">
+                                    <div className="c2"><img src={B2} alt='lb' className='mxlbe' /></div>
+
+                                </div>
+                                <div className="mkal2">
+
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link style={{
+                            width: '100%',
+                            alignSelf: 'center',
+                            height: '100%'
+
+                        }} to={`/select/${'DEAWOO'}`}>
+                            <div className="mkalx3">
+                                <div className="mcsqt">
+                                    <div className="c2"><img src={B3} alt='lb' className='mxlbe' /></div>
+
+                                </div>
+                                <div className="mkal3">
+
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link style={{
+                            width: '100%',
+                            alignSelf: 'center',
+                            height: '100%'
+
+                        }} to={`/select/${'BUGATTI DIVO'}`}>
+                            <div className="mkalx4">
+                                <div className="mcsqt">
+                                    <div className="c2"><img src={B1} alt='lb' className='mxlbe' /></div>
+
+                                </div>
+                                <div className="mkal4">
+
+                                </div>
+                            </div>
+                        </Link>
+
+
+                        <div className="honda">
+                            <h1 className="fh">Cupra Formentor</h1>
+                            <img src={Honda} alt='lb' className='msz' />
+                            <p className="fs">
+                                Cupra is the high-performance brand for Spanish car brand SEAT and the Formentor is a new crossover coupe that takes square aim at rivals such as the Audi Q3 Sportback, Mercedes-Benz GLC Coupe and BMW X4 Coupe, for example, but at Seat pricing.
+        As such, it boasts sharp and edgy styling that’s hard to not to like and we think it has the looks to best the best in this segment. As for firepower, a 2.0-litre turbocharged petrol engine is fitted with 228 kW and 400 Nm of torque on offer, combined with 4-wheel-drive and a 7-speed DSG transmission. A plug-in hybrid powertrain is also offered. If available in Mzanzi, we can’t see why the Formentor wouldn't serve as an attractive choice to counter the mostly predictable design direction offered by the German trio.
+        Skoda Yeti Raptor as it’s perhaps the most capable offroad bakkie currently on sale in South Africa. But sometimes bigger is better and in the case of Ford’s F-Series range of pickups, this is certainly the case. The full-size F-Series is the most-sold pickup in the U.S. and in South Africa, enthusiasts seem to have an affinity for the F-150 and in particular, the F-150 Raptor.
+        While various powerful powerplants are offered for the F-150, the F-150 Raptor is fitted with a twin-turbocharged 3.5-litre V6 engine with 331 kW and 690 Nm of torque and mated with a 10-speed automatic transmission that drives all 4 wheels. The larger F-150 Raptor is an offroad beast, especially because of its impressive variable damping Fox shock absorbers that deliver exceptional offroad performance. Variable drive modes are on offer, but as on the Ranger Raptor, Baja mode is the mode that allows you to achieve truly astonishing high-speed offroad performance in tough terrain. There is so much to like about the F-150 Raptor and it simply must feature on our list of coolest cars we would want in South Africa.
+
+
                         </p>
+                        </div>
+
                     </div>
+                    :
+                    <div className="cars">
+                        <Welcome />
+                        {this.state.nav && <Nav />}
 
-                </div >
+                        {this.state.body && <div className="body">
+                            <div className="type">
+                                <h1 className="typ">THE NEW ERA OF TYPE S</h1>
+                            </div>
 
-                }
+                            <div className="typer">
+                                {this.state.types.map(e => {
+                                    return (<div key={e._id} className="typer1">
+
+                                        <div className="colom2">
+                                            <img src={e.logo} alt='lb' className='lb' />
+                                        </div>
+                                        <div className="colom3">
+                                            <h1>{e.name}</h1>
+                                            <p className="ft">{e.p.slice(0, 120)}</p>
+                                            <img src={e.icon} alt='lbt' className="video" />
+                                            <p className="ft">{e.p.slice(120, 250)}</p>
+                                            <Link style={{ alignSelf: 'flex-end' }} to={`/type_s/${e._id}`}>
+                                                <div onClick={() => { this.c(e._id) }} className="butn">MORE</div>
+                                            </Link>
+                                        </div>
+                                    </div>)
+                                })}
+
+
+
+
+
+                            </div>
+
+
+                            <div className="csaction">
+                                <div className="njal">MOST EXPENSIVE CAR </div>
+                                <div className="ymi">
+
+                                    <Link style={{}} to={`/select/${'Porsche'}`}>
+                                        <div className="kal">
+                                            <div className="csqt">
+                                                <div className="c2"><img src={B4} alt='lb' className='lbe' /></div>
+
+                                            </div>
+                                        </div>
+                                    </Link>
+
+                                    <Link style={{}} to={`/select/${'FERRARI'}`}>
+                                        <div className="kal2">
+                                            <div className="csqt">
+                                                <div className="c2"><img src={B2} alt='lb' className='lbe' /></div>
+
+                                            </div>
+                                        </div>
+                                    </Link>
+
+                                    <Link style={{}} to={`/select/${'DEAWOO'}`}>
+
+                                        <div className="kal3">
+                                            <div className="csqt">
+                                                <div className="c2"><img src={B3} alt='lb' className='lbe' /></div>
+
+                                            </div>
+
+                                        </div>
+                                    </Link>
+                                    <Link style={{}} to={`/select/${'BUGATTI DIVO'}`}>
+
+                                        <div className="kal4">
+                                            <div className="csqt">
+                                                <div className="c2"><img src={B1} alt='lb' className='lbe' /></div>
+
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+
+                            </div>
+
+
+                            <div className="honda">
+                                <h1 className="fh">Cupra Formentor</h1>
+                                <img src={Honda} alt='lb' className='lbh' />
+                                <p className="fs">
+                                    Cupra is the high-performance brand for Spanish car brand SEAT and the Formentor is a new crossover coupe that takes square aim at rivals such as the Audi Q3 Sportback, Mercedes-Benz GLC Coupe and BMW X4 Coupe, for example, but at Seat pricing.
+            As such, it boasts sharp and edgy styling that’s hard to not to like and we think it has the looks to best the best in this segment. As for firepower, a 2.0-litre turbocharged petrol engine is fitted with 228 kW and 400 Nm of torque on offer, combined with 4-wheel-drive and a 7-speed DSG transmission. A plug-in hybrid powertrain is also offered. If available in Mzanzi, we can’t see why the Formentor wouldn't serve as an attractive choice to counter the mostly predictable design direction offered by the German trio.
+            Skoda Yeti Raptor as it’s perhaps the most capable offroad bakkie currently on sale in South Africa. But sometimes bigger is better and in the case of Ford’s F-Series range of pickups, this is certainly the case. The full-size F-Series is the most-sold pickup in the U.S. and in South Africa, enthusiasts seem to have an affinity for the F-150 and in particular, the F-150 Raptor.
+            While various powerful powerplants are offered for the F-150, the F-150 Raptor is fitted with a twin-turbocharged 3.5-litre V6 engine with 331 kW and 690 Nm of torque and mated with a 10-speed automatic transmission that drives all 4 wheels. The larger F-150 Raptor is an offroad beast, especially because of its impressive variable damping Fox shock absorbers that deliver exceptional offroad performance. Variable drive modes are on offer, but as on the Ranger Raptor, Baja mode is the mode that allows you to achieve truly astonishing high-speed offroad performance in tough terrain. There is so much to like about the F-150 Raptor and it simply must feature on our list of coolest cars we would want in South Africa.
+
+
+                        </p>
+                            </div>
+
+                        </div >
+
+                        }
+                    </div>}
             </div>
         );
     }

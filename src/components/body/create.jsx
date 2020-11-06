@@ -8,7 +8,7 @@ class Create extends Component {
     state = {
 
 
-
+        wide: window.innerWidth,
         image: '',
         indexs: false,
         user_name: '',
@@ -112,10 +112,21 @@ class Create extends Component {
         this.setState({ [name]: value })
     };
 
+    size = () => {
+        const change = () => {
+            this.setState({
+                wide: window.innerWidth
+            })
+        }
+        window.addEventListener('resize', change, false)
+    }
+
+    componentDidMount() {
+        this.size()
+    }
+
     render() {
-        /*        marginLeft: '11%',
-                                marginTop: this.state.user_name.length >= 1 ? '-11%' : '-5%'
-        */
+
         return (
             <div className="mformc">
                 <div className="mf1">
@@ -127,7 +138,7 @@ class Create extends Component {
                             {this.state.image.length < 1 ? <User className='userv' style={{ width: '30px', height: '30px', fill: '#ffff', }} alt='movtreil' /> :
                                 <img src={this.state.image} className='googler' alt='g' onClick={this.props.goog} />}
                         </div>
-                        <div className="gxname">Login</div>
+                        {this.state.wide > 250 && <div className="gxname">Login</div>}
                     </div>
                 </div>
                 <div className="mf2">
@@ -143,16 +154,18 @@ class Create extends Component {
                                                 this.state.user_name.length >= 5 && this.state.user_name.length <= 6 ? ' rgb(0, 255, 0)' : ' rgb(116, 116, 116)'
 
                                 }}
+
+                                placeholder={this.state.wide <= 400 ? 'user_name' : ''}
                                 name='user_name'
                                 onClick={this.fleght}
                                 value={this.state.user_name}
                                 noValidate
                                 onChange={this.handleChange}
                             />
-                            <label style={{
-                                marginTop: this.state.user_name.length >= 1 ? '-11%' : '-5%'
+                            {this.state.wide >= 400 && <label style={{
+                                marginLeft: this.state.wide <= 200 ? '-46%' : '-58%', marginTop: this.state.wide <= 200 ? this.state.user_name.length >= 1 ? '-18%' : '-10%' : this.state.user_name.length >= 1 ? '-11%' : '-5%'
 
-                            }} className='msl1f1'>Firstname</label>
+                            }} className='msl1f1'>Firstname</label>}
                         </div>
                         {this.firstname()}
 
@@ -171,15 +184,18 @@ class Create extends Component {
                                                 this.state.user_lastname.length >= 5 && this.state.user_lastname.length <= 6 ? ' rgb(0, 255, 0)' : ' rgb(116, 116, 116)'
 
                                 }}
+                                placeholder={this.state.wide <= 400 ? 'user_lastname' : ''}
+
                                 name='user_lastname'
                                 onClick={this.fleght}
                                 value={this.state.user_lastname}
                                 noValidate
                                 onChange={this.handleChange}
                             />
-                            <label style={{
-                                marginTop: this.state.user_lastname.length >= 1 ? '-11%' : '-5%'
-                            }} className='msl1f1'>Lastname</label>
+                            {this.state.wide >= 400 && <label style={{
+                                marginLeft: this.state.wide <= 200 ? '-46%' : '-58%', marginTop: this.state.wide <= 200 ? this.state.user_lastname.length >= 1 ? '-18%' : '-10%' : this.state.user_lastname.length >= 1 ? '-11%' : '-5%'
+
+                            }} className='msl1f1'>Lastname</label>}
                         </div>
                         {this.lastname()}
                     </div>
@@ -198,6 +214,7 @@ class Create extends Component {
                                                     this.state.email.length >= 5 && this.state.email.length <= 6 ? ' rgb(0, 255, 0)' : ' rgb(116, 116, 116)'
 
                                 }}
+                                placeholder={this.state.wide <= 400 ? 'email' : ''}
 
                                 name='email'
                                 onClick={this.fleght}
@@ -205,10 +222,10 @@ class Create extends Component {
                                 noValidate
                                 onChange={this.handleChange}
                             />
-                            <label style={{
-                                marginLeft: '-65%',
-                                marginTop: this.state.email.length >= 1 ? '-11%' : '-5%'
-                            }} className='msl1f1'>Email</label>
+                            {this.state.wide >= 400 && <label style={{
+                                marginLeft: this.state.wide <= 200 ? '-60%' : '-65%', marginTop: this.state.wide <= 200 ? this.state.email.length >= 1 ? '-18%' : '-10%' : this.state.email.length >= 1 ? '-11%' : '-5%'
+
+                            }} className='msl1f1'>Email</label>}
                         </div>
                         {this.email()}
                     </div>
@@ -227,15 +244,18 @@ class Create extends Component {
                                                 this.state.password.length >= 5 && this.state.password.length <= 6 ? ' rgb(0, 255, 0)' : ' rgb(116, 116, 116)'
 
                                 }}
+                                placeholder={this.state.wide <= 400 ? 'password' : ''}
+
                                 name='password'
                                 onClick={this.fleght}
                                 value={this.state.password}
                                 noValidate
                                 onChange={this.handleChange}
                             />
-                            <label style={{
-                                marginTop: this.state.password.length >= 1 ? '-11%' : '-5%'
-                            }} className='msl1f1'>Password</label>
+                            {this.state.wide >= 400 && <label style={{
+                                marginLeft: this.state.wide <= 200 ? '-46%' : '-58%', marginTop: this.state.wide <= 200 ? this.state.password.length >= 1 ? '-18%' : '-10%' : this.state.password.length >= 1 ? '-11%' : '-5%'
+
+                            }} className='msl1f1'>Password</label>}
                         </div>
                         {this.password()}
                     </div>

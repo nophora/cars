@@ -11,7 +11,7 @@ import './home.css'
 class Selected extends Component {
     state = {
 
-
+        wide: window.innerWidth,
         c: [],
 
         select: [
@@ -45,9 +45,18 @@ class Selected extends Component {
 
     }
 
-
+    size = () => {
+        const change = () => {
+            this.setState({
+                wide: window.innerWidth
+            })
+        }
+        window.addEventListener('resize', change, false)
+    }
 
     componentDidMount() {
+        this.size()
+
         console.log('j', this.props.match.params.id)
         const st = this.state.select.filter(e => { return e.name === this.props.match.params.id })
         this.setState({
@@ -67,7 +76,7 @@ class Selected extends Component {
 
                     <div className="honda">
                         <h1 className="fh">{e.name}</h1>
-                        <img src={e.icon} alt='lb' className='lbh' />
+                        <img style={{ width: this.state.wide <= 800 ? '100%' : '400px', height: this.state.wide <= 800 ? '50%' : '250px' }} src={e.icon} alt='lb' className='lbh' />
                         <p className="fs">{e.p}
 
 

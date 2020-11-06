@@ -26,7 +26,7 @@ class Types extends Component {
         ps: 0,
         vd: false,
         c: false,
-
+        wide: window.innerWidth,
         select: [],
         types: [{
             _id: "1", logo: Logl, name: 'Essenza SCV12',
@@ -111,9 +111,19 @@ class Types extends Component {
 
     }
 
-    componentDidMount() {
 
-        console.log('mtc', this.props.match.params.id)
+    size = () => {
+        const change = () => {
+            this.setState({
+                wide: window.innerWidth
+            })
+        }
+        window.addEventListener('resize', change, false)
+    }
+
+    componentDidMount() {
+        this.size()
+
         const st = this.state.types.filter(e => { return e._id === this.props.match.params.id })
         this.setState({
 
@@ -129,17 +139,17 @@ class Types extends Component {
             this.state.select.map(e => {
                 return (<div key={e._id} className="body">
                     {<Nav />}
-
+                    <div className="mtpr"></div>
                     <div className="types">
-                        <h1 className="typr">THE NEW ERA OF TYPE S</h1>
-                        <div className="hashlog">
+                        <h1 className={this.state.wide <= 500 ? 'typr1' : "typr"}>THE NEW ERA OF TYPE S</h1>
+                        <div className={this.state.wide <= 500 ? "mhashlog" : "hashlog"}>
                             <img onClick={this.cs} src={e.logo} alt='lb' className='lbr' />
                             <h1>{e.name}</h1>
                         </div>
                     </div>
 
                     <div className="typers">
-                        <div className="colomr1">
+                        <div className={this.state.wide <= 500 ? "mcolomr1" : "colomr1"}>
                             <div className="videi">
                                 {this.state.vd === true ? <img src={e.icon} alt='lbt' className="videoz" />
                                     : <video onTimeUpdate={this.duration} src={e.video} autoPlay className='vdx' />}
@@ -155,14 +165,14 @@ class Types extends Component {
                                 <div onClick={this.right} className="i1">{'>'}</div>
                             </div>
                         </div>
-                        <div className="colomr2">
+                        <div className={this.state.wide <= 500 ?"mcolomr2" :"colomr2"}>
                             <h1>the race is on</h1>
                             <p className="ft">{e.p.slice(0, 420)}</p>
                             <p className="ft">{e.p.slice(420, 620)}</p>
                         </div>
 
                     </div>
-                    <div style={{height:'100px',width:'100px',backgroundColor:'#ffff'}}></div>
+                    <div style={{ height: '100px', width: '100px', backgroundColor: '#ffff' }}></div>
                 </div>)
             })
 

@@ -158,11 +158,8 @@ transform: translateX(0px);
 }
 
 .msl1f1{
-    color: rgb(138, 138, 138);
-  
-    margin-left: -58%;
+    color: rgb(138, 138, 138); 
     transition: 1s;
-
     background-color: rgba(220, 20, 60, 0);
 }
 
